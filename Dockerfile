@@ -6,4 +6,4 @@ COPY . /app
 
 RUN mvn install package
 
-CMD ["java", "-jar", "/app/app.jar"]
+CMD ["java", "-jar", "/app/target/app.jar"]
