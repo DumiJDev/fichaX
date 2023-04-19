@@ -6,4 +6,6 @@ COPY . /app
 
 RUN mvn install package
 
+EXPOSE 8080
+
 CMD ["java", "-jar", "/app/target/app.jar"]
