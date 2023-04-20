@@ -55,6 +55,8 @@ class MessengerController() {
 
             val message = Message("Just a simple text")
 
+            println("Sending message")
+
             val resp: SendResponse = pageClient.publish(
               "me/messages", SendResponse::class.java,
               Parameter.with("recipient", recipient),  // the id or phone recipient
