@@ -9,6 +9,7 @@ import com.restfb.types.send.IdMessageRecipient
 import com.restfb.types.send.Message
 import com.restfb.types.send.SendResponse
 import com.restfb.types.webhook.WebhookObject
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.http.server.reactive.ServerHttpResponse
@@ -19,9 +20,9 @@ import java.util.*
 @RestController
 class MessengerController() {
 
-  val pageAccessToken =
-    "EAALkNyauCHcBAGZAvmGwJd78kmiMVECMZBXDKdc5ZCAqycr1oBC4lbIQwZC9TB1PlG93a92ESgEh1W4KUb7bS4x1so6IzHAjold289V3ZCCbFFF8ZBjfqcYq2lfUjpncyndWHRPZA8HuhhfrvUMZCwe3UUCDYtDhhYdbGJXI4Fl03wUlR5QwyNbr"
-  val secretApp = "80162d8f8055268f9ab8d7c822bdb934"
+  @Value("\${access_token}")
+  lateinit var pageAccessToken: String
+    val secretApp = "80162d8f8055268f9ab8d7c822bdb934"
 
 
   @GetMapping("/")

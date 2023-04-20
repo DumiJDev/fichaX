@@ -1,2 +1,3 @@
 server:
     port: ${PORT:8080}
+access_token: ${ACCESS_TOKEN:1234}
