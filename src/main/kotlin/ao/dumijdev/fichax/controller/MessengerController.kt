@@ -24,7 +24,7 @@ class MessengerController() {
   val secretApp = "80162d8f8055268f9ab8d7c822bdb934"
 
 
-  @GetMapping("/connect")
+  @GetMapping("/")
   fun connect(
     @RequestParam("hub.verify_token") verifyToken: String?,
     @RequestParam("hub.mode") mode: String?,
@@ -70,7 +70,7 @@ class MessengerController() {
             ) // one of the messages from above
 
             if (resp.isSuccessful)
-              return Mono.just(resp)
+              return Mono.just("ok")
           }
         }
       }
