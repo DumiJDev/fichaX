@@ -31,7 +31,7 @@ class MessengerController() {
     @RequestParam("hub.challenge") challenge: String?,
     response: ServerHttpResponse
   ): Mono<String> {
-    if (verifyToken != "test" || mode != "subscribe") {
+    if (verifyToken != "ramanujam" || mode != "subscribe") {
       response.statusCode = HttpStatus.FORBIDDEN
       return Mono.empty()
     }
