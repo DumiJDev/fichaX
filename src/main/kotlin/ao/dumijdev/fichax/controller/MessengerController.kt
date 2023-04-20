@@ -1,6 +1,7 @@
 package ao.dumijdev.fichax.controller
 
 import com.restfb.DefaultFacebookClient
+import com.restfb.DefaultJsonMapper
 import com.restfb.FacebookClient
 import com.restfb.Parameter
 import com.restfb.Version
@@ -41,9 +42,14 @@ class MessengerController() {
 
   @PostMapping("/webhook")
   fun message(
-    @RequestBody payload: WebhookObject,
+    @RequestBody body: String?,
     @RequestHeader("x-hub-signature-256") signature: String?
   ): Mono<Any> {
+
+    println(body)
+
+    val payload = DefaultJsonMapper().toJavaObject(body, WebhookObject::class.java)
+
     if (payload.isPage) {
       for (item in payload.entryList) {
         for (messageItem in item.messaging) {
