@@ -42,8 +42,10 @@ class MessengerController() {
   @PostMapping("/webhook")
   fun message(
     @RequestBody payload: WebhookObject,
+    @RequestBody text: String?,
     @RequestHeader("x-hub-signature-256") signature: String?
   ): Mono<Any> {
+    println(text)
     if (payload.isPage) {
       for (item in payload.entryList) {
         for (messageItem in item.messaging) {
